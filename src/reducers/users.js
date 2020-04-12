@@ -4,16 +4,12 @@ import {
   ADD_QUESTION_TO_USER
 } from '../actions/users'
 
-const initState = {
-  users: []
-}
-
-const users = (state = initState, action) => {
+const users = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USERS:
       return {
         ...state,
-        users: action.users
+        ...action.users
       }
     default:
       return state

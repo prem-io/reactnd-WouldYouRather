@@ -26,3 +26,36 @@
   background-size: contain;
   background-position: center;
 }
+
+.disabled::after {
+  color: tomato;
+  font-size: 12px;
+  content: ' *';
+}
+
+.login-btn {
+  width: 100%;
+  height: 45px;
+  background-color: #22292f;
+  color: #ffffff;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 0.25rem;
+}
+
+.login-btn:hover {
+  background-color: #22292f;
+  color: #ffffff;
+}
+
+.img-card {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.option-name {
+  margin-left: 10px;
+  font-size: 14px;
+}

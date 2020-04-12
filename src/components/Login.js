@@ -1,35 +1,66 @@
 import React, { Component } from 'react'
-import './app.css'
-import { Select } from 'antd'
+import { connect } from 'react-redux'
+import { Select, Button } from 'antd'
+import ImageCard from './ImageCard'
+import { setAuthUser } from '../actions/authUser'
 
 class Login extends Component {
+  state = {
+    selectedUser: '',
+    disabled: true,
+    loading: false
+  }
 
   handleChange = (value) => {
-    console.log(`selected ${value}`)
+    this.setState({
+      selectedUser: value,
+      disabled: false
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { selectedUser } = this.state
+    new Promise((res, rej) => {
+      this.setState({ loading: true })
+      setTimeout(() => res(), 500)
+    }).then(() => {
+      localStorage.setItem('authID', selectedUser)
+      this.props.dispatch(setAuthUser(selectedUser))
+    })
   }
 
   render() {
+    const { users } = this.props
+    console.log(users)
+
     return (
       <div className="login-container">
         <div className="card">
           <h5 className="card-header text-center">Would You Rather</h5>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="card-body">
               <div className="form-group">
                 <div className="login-img"></div>
-                <h5 className="card-title text-center">Sign In</h5>
-                <div>
-                  <Select defaultValue="" style={{ width: '100%' }} onChange={this.handleChange}>
-                    <Select.Option value="" disabled>Select a User to login</Select.Option>
-                    <Select.Option value="jack">Jack</Select.Option>
-                    <Select.Option value="lucy">Lucy</Select.Option>
-                    <Select.Option value="Yiminghe">yiminghe</Select.Option>
-                    <Select.Option value="Yiminghe">yiminghe</Select.Option>
-                    <Select.Option value="Yiminghe">yiminghe</Select.Option>
-                  </Select>
-                </div>
+                <p>Please sign-in to continue</p>
+                <Select defaultValue="" style={{ width: '100%' }} onChange={this.handleChange}>
+                  <Select.Option value="" disabled>
+                    <span className="disabled">Select a User to login</span>
+                  </Select.Option>
+                  {users.length > 0 && users.map(({ id, avatarURL, name }, i) =>
+                    <Select.Option key={i} value={id}>
+                      <ImageCard url={avatarURL} name={name} small={true} />
+                      <span className="option-name">{name}</span>
+                    </Select.Option>
+                  )}
+                </Select>
               </div>
-              <button className="btn btn-primary w-100">Sign In</button>
+              <Button
+                className="login-btn"
+                htmlType="submit"
+                loading={this.state.loading}
+                disabled={this.state.disabled}
+              >Sign In</Button>
             </div>
           </form>
         </div>
@@ -38,4 +69,10 @@ class Login extends Component {
   }
 }
 
-export default Login
+function mapStateToProps({ users }) {
+  return {
+    users: Object.values(users)
+  }
+}
+
+export default connect(mapStateToProps)(Login)

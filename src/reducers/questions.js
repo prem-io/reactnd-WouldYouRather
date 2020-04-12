@@ -1,19 +1,15 @@
 import { RECEIVE_QUESTIONS } from '../actions/questions'
 
-const initState = {
-  questions: []
-}
-
-const users = (state = initState, action) => {
+const questions = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_QUESTIONS:
       return {
         ...state,
-        questions: action.questions
+        ...action.questions
       }
     default:
       return state
   }
 }
 
-export default users
+export default questions
