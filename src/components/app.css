@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 1.25rem;
+  box-shadow: 5px 5px 6px #dbd8d8, -5px -5px 6px #ffffff;
+}
+
+.card-header:first-child {
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.login-img {
+  background: url('/images/login.png') center no-repeat;
+  width: 320px;
+  height: 320px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}

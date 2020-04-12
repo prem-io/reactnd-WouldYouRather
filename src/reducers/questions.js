@@ -1,8 +1,19 @@
-export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
+import { RECEIVE_QUESTIONS } from '../actions/questions'
 
-export default function receiveUsers(questions) {
-  return {
-    type: RECEIVE_QUESTIONS,
-    questions,
+const initState = {
+  questions: []
+}
+
+const users = (state = initState, action) => {
+  switch (action.type) {
+    case RECEIVE_QUESTIONS:
+      return {
+        ...state,
+        questions: action.questions
+      }
+    default:
+      return state
   }
 }
+
+export default users
