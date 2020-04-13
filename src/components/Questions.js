@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
+import { Tabs } from 'antd'
+import QueCard from './QueCard'
 
-export class Questions extends Component {
+const { TabPane } = Tabs
+class Questions extends Component {
   render() {
     return (
-      <div>
-        Questions
+      <div className="row questions-container">
+        <div className="col-12 br">
+          <Tabs defaultActiveKey="1" type="card" size={'large'}>
+            <TabPane tab="Unanswered" key="1">
+              <QueCard />
+              <QueCard />
+              <QueCard />
+              <QueCard />
+              <QueCard />
+            </TabPane>
+            <TabPane tab="Answered" key="2">
+              <QueCard />
+            </TabPane>
+          </Tabs>
+        </div>
       </div>
     )
   }

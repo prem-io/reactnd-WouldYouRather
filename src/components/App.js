@@ -11,6 +11,7 @@ import Questions from './Questions'
 import LeaderBoard from './LeaderBoard'
 import Poll from './Poll'
 import NotFound from './NotFound'
+import AppHeader from './AppHeader'
 export class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
@@ -20,6 +21,7 @@ export class App extends Component {
     return (
       <Router>
         <div className="container">
+          <AppHeader />
           {localStorage.getItem('authID') === null
             ? <Route render={() => (<Login />)} />
             : <Switch>
