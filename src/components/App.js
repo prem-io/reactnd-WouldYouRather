@@ -12,6 +12,7 @@ import LeaderBoard from './LeaderBoard'
 import Poll from './Poll'
 import NotFound from './NotFound'
 import AppHeader from './AppHeader'
+import NewQuestionForm from './NewQuestionForm'
 export class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
@@ -34,6 +35,7 @@ export class App extends Component {
               <Route exact path='/questions' component={Questions} />
               <Route path='/questions/:id' component={Poll} />
               <Route path='/leaderboard' component={LeaderBoard} />
+              <Route path="/new_poll" component={NewQuestionForm} />
               <Route path='/login' component={Login} />
               <Route path="/404" component={NotFound} />
               <Redirect from="*" exact to="/404" />

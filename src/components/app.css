@@ -242,3 +242,36 @@
 }
 
 /* Lead Card */
+
+/* New Poll Card */
+
+.h-line {
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #22292f;
+}
+
+.h-line:before,
+.h-line:after {
+  background-color: #d4d4d5;
+  content: '';
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 40%;
+  margin: 0 1rem;
+}
+
+/* New Poll Card */
+
+/* New Card -- Start*/
+
+.new-card .ant-card-head-title {
+  font-size: 18px;
+}
+
+/* New Card -- End */
