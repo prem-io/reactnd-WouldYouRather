@@ -70,11 +70,14 @@
 
 .navbar-links a {
   color: #22292f;
-  padding: 0.5rem 2rem 0.5rem 2rem;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem;
 }
 
 .navbar-links a:hover {
   border-bottom: 2px solid #22292f;
+  background: transparent;
+  transition: border 0.2s ease;
 }
 
 .is-active {
@@ -108,6 +111,11 @@
   background-color: #fff;
   color: #22292f;
   border: 1px solid #22292f;
+}
+
+.nav-btn:focus {
+  color: #22292f;
+  border-color: #22292f;
 }
 
 .logout {
@@ -178,6 +186,11 @@
   background-color: #fff;
   color: #22292f;
   border: 1px solid #22292f;
+}
+
+.que-btn:focus {
+  outline: 0;
+  box-shadow: none;
 }
 
 .line {
