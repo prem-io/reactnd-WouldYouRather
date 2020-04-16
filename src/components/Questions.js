@@ -10,14 +10,14 @@ class Questions extends Component {
         <div className="col-12 br">
           <Tabs defaultActiveKey="1" type="card" size={'large'}>
             <TabPane tab="Unanswered" key="1">
-              <QueCard />
-              <QueCard />
-              <QueCard />
-              <QueCard />
-              <QueCard />
+              <QueCard unanswered={true} />
+              <QueCard unanswered={true} />
+              <QueCard unanswered={true} />
             </TabPane>
             <TabPane tab="Answered" key="2">
-              <QueCard />
+              <QueCard answered={true} />
+              <QueCard answered={true} />
+              <QueCard answered={true} />
             </TabPane>
           </Tabs>
         </div>

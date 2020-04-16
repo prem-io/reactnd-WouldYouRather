@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import LeadCard from './LeadCard'
 
 export class LeaderBoard extends Component {
   render() {
     return (
-      <div>
-        LeaderBoard
+      <div className="row questions-container">
+        <div className="col-12 br">
+          <LeadCard />
+        </div>
       </div>
     )
   }

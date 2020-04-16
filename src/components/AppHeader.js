@@ -5,9 +5,9 @@ import { Button } from 'antd'
 
 const AppHeader = () => {
   return (
-    <div class="nav-items">
-      <div class="navbar-links d-flex">
-        <NavLink activeClassName="is-active" to="/questions">Home</NavLink>
+    <div className="nav-items">
+      <div className="navbar-links d-flex">
+        <NavLink activeClassName="is-active" to="/questions">Questions</NavLink>
         <NavLink activeClassName="is-active" to="/new-poll">New Poll</NavLink>
         <NavLink activeClassName="is-active" to="/leaderboard">Leader Board</NavLink>
       </div>
@@ -15,7 +15,7 @@ const AppHeader = () => {
         <ImageCard url={'https://reactnd-would-you-rather.netlify.com/images/avatars/fox.png'} small={true} />
         <span className="user-name">Prem Kumar</span>
         <Button className="nav-btn" shape="round">
-          Logout
+          Logout<span className="logout" />
         </Button>
       </div>
     </div>
