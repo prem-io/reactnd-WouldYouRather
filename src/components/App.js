@@ -19,27 +19,28 @@ export class App extends Component {
   }
 
   render() {
+    const { authUser } = this.props
+
     return (
       <Router>
         <div className="container">
-          <AppHeader />
-          {localStorage.getItem('authID') === null
-            ? <Route render={() => (<Login />)} />
-            : <Switch>
-              <Route exact path='/'
-                render={() =>
-                  localStorage.authID ? <Redirect to="/questions" /> : <Redirect to="/login" />
-                }
-              />
-              <Route exact path='/' render={() => <Redirect to="/questions" />} />
-              <Route exact path='/questions' component={Questions} />
-              <Route path='/questions/:id' component={Poll} />
-              <Route path='/leaderboard' component={LeaderBoard} />
-              <Route path="/new_poll" component={NewQuestionForm} />
+          {authUser === null
+            ? <>
+              <Route render={() => <Redirect to='/login' />} />
               <Route path='/login' component={Login} />
-              <Route path="/404" component={NotFound} />
-              <Redirect from="*" exact to="/404" />
-            </Switch>
+            </>
+            : <>
+              <AppHeader />
+              <Switch>
+                <Route exact path="/" render={() => <Redirect to="/questions" />} />
+                <Route exact path='/questions' component={Questions} />
+                <Route path='/questions/:id' component={Poll} />
+                <Route path='/leaderboard' component={LeaderBoard} />
+                <Route path="/new_poll" component={NewQuestionForm} />
+                <Route path="/404" component={NotFound} />
+                <Redirect from="*" to="/404" />
+              </Switch>
+            </>
           }
         </div>
       </Router>

@@ -51,7 +51,7 @@
 
 .img-card {
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .option-name {

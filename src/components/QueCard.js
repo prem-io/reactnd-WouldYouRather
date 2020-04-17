@@ -3,11 +3,12 @@ import { Card, Radio } from 'antd'
 import React from 'react'
 import ImageCard from './ImageCard'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const QueCard = ({
-  username = 'Joeylene',
-  url = 'https://reactnd-would-you-rather.netlify.com/images/avatars/lion.png',
-  id,
+  question,
+  user,
+  qid,
   value,
   handlePoll,
   handleSubmit,
@@ -15,29 +16,27 @@ const QueCard = ({
   poll,
   answered
 }) => {
+  const questionDescription = question.optionOne.text.substring(0, 15)
+
   const radioStyle = {
     display: 'block',
     height: '30px',
     lineHeight: '30px',
   }
 
-  console.log(id)
-
   return (
     <Card
       style={{ marginTop: 16 }}
       type="inner"
-      title={username + ' asks:'}
-      extra={
-        unanswered && <Link to={`/questions/${id}`} className="btn que-btn">Answer Poll</Link>
-      }
+      title={user.name + ' asks:'}
     >
       <div className="row m-0">
-        <div className="col-3 line">
-          <ImageCard url={url} large={true} />
+        <div className="col-4 line">
+          <ImageCard url={user.avatarURL} large={true} />
         </div>
-        <div className="col-9">
+        <div className="col-8">
           <h6 className="text-left">Would you rather</h6>
+          {(unanswered || answered) && <p className="text-center">{questionDescription}<br />or...</p>}
           {poll && <Radio.Group onChange={handlePoll} value={value} className="mt-2">
             <Radio style={radioStyle} value={1}>
               Option A
@@ -46,8 +45,8 @@ const QueCard = ({
               Option B
             </Radio>
           </Radio.Group>}
-          {(unanswered || answered) && <p className="text-center">write JavaScript<br />or...</p>}
           <div className="mt-2">
+            {unanswered && <Link to={`/questions/${qid}`} className="btn que-btn">Answer Poll</Link>}
             {poll && <button className="btn que-btn" onClick={handleSubmit}>Poll</button>}
             {answered && <button className="btn que-btn">Results</button>}
           </div>
@@ -57,4 +56,11 @@ const QueCard = ({
   )
 }
 
-export default QueCard
+function mapStateToProps({ questions, users }, { qid }) {
+  const question = questions[qid]
+  const user = users[questions[qid].author]
+
+  return { question, user }
+}
+
+export default connect(mapStateToProps)(QueCard)

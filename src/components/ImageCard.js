@@ -6,8 +6,7 @@ const smallImg = {
 }
 
 const largeImg = {
-  width: '100%',
-  height: '100%'
+  width: '100%'
 }
 
 const ImageCard = ({ url, name, small }) => {

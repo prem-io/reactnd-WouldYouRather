@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Select, Button } from 'antd'
 import ImageCard from './ImageCard'
 import { setAuthUser } from '../actions/authUser'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -25,14 +26,13 @@ class Login extends Component {
       this.setState({ loading: true })
       setTimeout(() => res(), 500)
     }).then(() => {
-      localStorage.setItem('authID', selectedUser)
       this.props.dispatch(setAuthUser(selectedUser))
+      this.props.history.push('/questions')
     })
   }
 
   render() {
     const { users } = this.props
-    console.log(users)
 
     return (
       <div className="login-container">

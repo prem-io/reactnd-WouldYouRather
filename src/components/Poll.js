@@ -18,13 +18,12 @@ export class Poll extends Component {
   }
 
   render() {
-    const id = 1
-    console.log(this.state)
+    const id = this.props.match.params.id
 
     return (
       <div className="row questions-container">
         <div className="col-12 br">
-          <QueCard poll={true} id={id} value={this.state.value} handlePoll={this.onChange} handleSubmit={this.handleSubmit} />
+          <QueCard poll={true} qid={id} value={this.state.value} handlePoll={this.onChange} handleSubmit={this.handleSubmit} />
         </div>
       </div>
     )
