@@ -1,9 +1,17 @@
 import React from 'react'
-import ImageCard from './ImageCard'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { Button } from 'antd'
+import { setAuthUser } from '../actions/authUser'
+import ImageCard from './ImageCard'
 
-const AppHeader = () => {
+const AppHeader = ({ authUser, users, setAuthUser }) => {
+  const handleLogout = (e) => {
+    e.preventDefault()
+    setAuthUser(null)
+    localStorage.clear()
+  }
+
   return (
     <div className="nav-items">
       <div className="navbar-links d-flex">
@@ -12,9 +20,9 @@ const AppHeader = () => {
         <NavLink activeClassName="is-active" to="/leaderboard">Leader Board</NavLink>
       </div>
       <div className="navbar-profile">
-        <ImageCard url={'https://reactnd-would-you-rather.netlify.com/images/avatars/fox.png'} small={true} />
-        <span className="user-name">Prem Kumar</span>
-        <Button className="nav-btn" shape="round">
+        <ImageCard url={users[authUser].avatarURL} small={true} />
+        <span className="user-name">{users[authUser].name}</span>
+        <Button className="nav-btn" shape="round" onClick={handleLogout}>
           Logout<span className="logout" />
         </Button>
       </div>
@@ -22,4 +30,11 @@ const AppHeader = () => {
   )
 }
 
-export default AppHeader
+function mapStateToProps({ users, authUser }) {
+  return {
+    authUser,
+    users
+  }
+}
+
+export default connect(mapStateToProps, { setAuthUser })(AppHeader)
