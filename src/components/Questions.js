@@ -6,7 +6,7 @@ import QueCard from './QueCard'
 const { TabPane } = Tabs
 class Questions extends Component {
   render() {
-    const { users, questions, userQuestionData: { unanswered, answered } } = this.props
+    const { userQuestionData: { unanswered, answered } } = this.props
     console.log(unanswered, answered)
 
     return (
@@ -15,16 +15,12 @@ class Questions extends Component {
           <Tabs defaultActiveKey="1" type="card" size={'large'}>
             <TabPane tab="Unanswered" key="1">
               {unanswered.map(question => (
-                <QueCard
-                  key={question.id}
-                  qid={question.id}
-                  unanswered={true}
-                />
+                <QueCard key={question.id} qid={question.id} unanswered={true} cardType={'CARD_PREVIEW'} />
               ))}
             </TabPane>
             <TabPane tab="Answered" key="2">
               {answered.map(question => (
-                <QueCard key={question.id} qid={question.id} answered={true} />
+                <QueCard key={question.id} qid={question.id} unanswered={false} cardType={'CARD_PREVIEW'} />
               ))}
             </TabPane>
           </Tabs>

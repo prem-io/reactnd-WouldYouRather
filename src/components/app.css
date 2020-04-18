@@ -288,3 +288,37 @@
 }
 
 /* New Card -- End */
+
+/* Vote Card */
+
+.vote-card {
+  position: relative;
+  border-top: 2px solid #767676 !important;
+  background-color: #ffffff;
+  margin: 1rem 0;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.vote-percent .ant-progress-inner {
+  background-color: #ecf0f1;
+}
+
+.vote-percent .ant-progress-bg {
+  background-color: #2c3e50;
+}
+
+.vote-icon {
+  background-image: url('/assets/voting.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  width: 35px;
+  height: 35px;
+}
+
+/* Vote Card */
