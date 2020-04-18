@@ -23,6 +23,16 @@ const users = (state = {}, action) => {
           }
         }
       }
+
+    case ADD_QUESTION_TO_USER:
+      const { id, author } = action
+      return {
+        ...state,
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat(id)
+        }
+      }
     default:
       return state
   }

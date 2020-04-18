@@ -178,19 +178,27 @@
 .que-btn {
   background-color: #22292f;
   color: #ffffff;
-  padding: 0.25rem 1.75rem;
+  padding: 0.4rem 1.75rem;
   width: 100%;
+  border-radius: 5px;
+  border: none;
 }
 
 .que-btn:hover {
-  background-color: #fff;
-  color: #22292f;
-  border: 1px solid #22292f;
+  background-color: #22292f;
+  color: #ffffff;
 }
 
 .que-btn:focus {
+  background-color: #22292f;
+  color: #fff;
   outline: 0;
   box-shadow: none;
+}
+
+.que-btn .ant-btn-primary:focus {
+  background-color: #22292f;
+  color: #fff;
 }
 
 .line {

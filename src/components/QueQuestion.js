@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Radio } from 'antd'
+import { Radio, Button } from 'antd'
 
 const radioStyle = {
   display: 'block',
@@ -7,9 +7,8 @@ const radioStyle = {
   lineHeight: '30px',
 }
 
-const QueQuestion = ({ question, value, handlePoll, handleSubmit }) => {
+const QueQuestion = ({ question, value, isLoading, handlePoll, handleSubmit }) => {
   const btnDisabled = value === '' ? true : false
-  console.log(question)
   return (
     <Fragment>
       <h6 className="text-left">Would you rather</h6>
@@ -23,7 +22,7 @@ const QueQuestion = ({ question, value, handlePoll, handleSubmit }) => {
           </Radio>
         </Radio.Group>
         <div className="mt-2">
-          <button className="btn que-btn" type="submit" disabled={btnDisabled}>Poll</button>
+          <Button className="btn que-btn" loading={isLoading} htmlType="submit" disabled={btnDisabled}>Poll</Button>
         </div>
       </form>
     </Fragment>

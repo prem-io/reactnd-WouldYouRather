@@ -13,6 +13,7 @@ import Poll from './Poll'
 import NotFound from './NotFound'
 import AppHeader from './AppHeader'
 import NewQuestionForm from './NewQuestionForm'
+
 export class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
@@ -20,7 +21,6 @@ export class App extends Component {
 
   render() {
     const { authUser } = this.props
-
     return (
       <Router>
         <div className="container">

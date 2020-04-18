@@ -14,12 +14,11 @@ export function getInitialData() {
   )
 }
 
-export function saveQuestionAnswer(authUser, qid, answer) {
-  console.log('info', { authUser, qid, answer })
-  return _saveQuestionAnswer({ authedUser: authUser, qid, answer })
+export function saveQuestionAnswer(authedUser, qid, answer) {
+  return _saveQuestionAnswer({ authedUser, qid, answer })
 }
 
 export function saveQuestion(question) {
-  console.log(question)
-  // return _saveQuestion(question)
+  console.log('saveQuestion', question)
+  return _saveQuestion(question)
 }

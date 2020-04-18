@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import QueCard from './QueCard'
-import { saveUserAnswer } from '../actions/shared'
+import { saveAnswer } from '../actions/shared'
+import { message } from 'antd'
 
 export class Poll extends Component {
-  state = { value: '' };
+  state = { value: '', isLoading: false };
 
   onChange = e => {
     this.setState({
@@ -22,7 +23,16 @@ export class Poll extends Component {
     const qid = this.props.match.params.id
     const authUser = this.props.authUser
     const answer = this.state.value
-    this.props.dispatch(saveUserAnswer(authUser, qid, answer, this.pushRoute))
+    new Promise((res, _rej) => {
+      this.setState({ isLoading: true })
+      this.props.dispatch(saveAnswer(authUser, qid, answer))
+      setTimeout(() => {
+        message.success('Your Answer is Polled.')
+        res('success')
+      }, 1000)
+    }).then(() => {
+      this.pushRoute()
+    })
   }
 
   render() {
@@ -35,6 +45,7 @@ export class Poll extends Component {
           <QueCard
             qid={id}
             value={this.state.value}
+            isLoading={this.state.isLoading}
             handlePoll={this.onChange}
             handleSubmit={this.handleSubmit}
             cardType={results ? 'CARD_RESULT' : 'CARD_QUESTION'}
