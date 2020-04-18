@@ -15,13 +15,13 @@ const QueResult = ({ question, user }) => {
       </div>
       <div className="vote-card">
         <div>{question.optionOne.text}</div>
-        <Progress className="vote-percent" percent={(optionOneVotes / votesTotal * 100).toFixed(0)} size="small" />
+        <Progress className="vote-percent" percent={(optionOneVotes / votesTotal * 100).toFixed(0)} size="small" status="normal" />
         <div className="text-center">{optionOneVotes} out of {votesTotal} votes</div>
         {(userVote === 'optionOne') && <span className="vote-icon"></span>}
       </div>
       <div className="vote-card">
         <div>{question.optionTwo.text}</div>
-        <Progress className="vote-percent" percent={(optionTwoVotes / votesTotal * 100).toFixed(0)} size="small" />
+        <Progress className="vote-percent" percent={(optionTwoVotes / votesTotal * 100).toFixed(0)} size="small" status="normal" />
         <div className="text-center">{optionTwoVotes} out of {votesTotal} votes</div>
         {(userVote === 'optionTwo') && <span className="vote-icon"></span>}
       </div>

@@ -11,6 +11,18 @@ const users = (state = {}, action) => {
         ...state,
         ...action.users
       }
+    case ADD_ANSWER_TO_USER:
+      const { authUser, qid, answer } = action
+      return {
+        ...state,
+        [authUser]: {
+          ...state[authUser],
+          answers: {
+            ...state[authUser].answers,
+            [qid]: answer
+          }
+        }
+      }
     default:
       return state
   }

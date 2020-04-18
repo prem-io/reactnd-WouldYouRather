@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import QueCard from './QueCard'
+import { saveUserAnswer } from '../actions/shared'
 
 export class Poll extends Component {
   state = { value: '' };
 
   onChange = e => {
-    console.log('Choosen Option', e.target.value)
     this.setState({
       value: e.target.value,
     })
   };
 
-  handleSubmit = () => {
-    console.log("Poll Submit")
+  pushRoute = () => {
+    const qid = this.props.match.params.id
+    this.props.history.push(`/questions/${qid}`, { results: true })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const qid = this.props.match.params.id
+    const authUser = this.props.authUser
+    const answer = this.state.value
+    this.props.dispatch(saveUserAnswer(authUser, qid, answer, this.pushRoute))
   }
 
   render() {
@@ -36,4 +45,7 @@ export class Poll extends Component {
   }
 }
 
-export default connect(null)(Poll)
+function mapStateToProps({ authUser }) {
+  return { authUser }
+}
+export default connect(mapStateToProps)(Poll)

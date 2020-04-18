@@ -8,20 +8,22 @@ const radioStyle = {
 }
 
 const QueQuestion = ({ question, value, handlePoll, handleSubmit }) => {
+  const btnDisabled = value === '' ? true : false
+  console.log(question)
   return (
     <Fragment>
       <h6 className="text-left">Would you rather</h6>
       <form onSubmit={handleSubmit}>
         <Radio.Group onChange={handlePoll} value={value} className="mt-2">
-          <Radio style={radioStyle} value={1}>
-            Option A
-            </Radio>
-          <Radio style={radioStyle} value={2}>
-            Option B
-            </Radio>
+          <Radio style={radioStyle} value={"optionOne"}>
+            {question.optionOne.text}
+          </Radio>
+          <Radio style={radioStyle} value={"optionTwo"}>
+            {question.optionTwo.text}
+          </Radio>
         </Radio.Group>
         <div className="mt-2">
-          <button className="btn que-btn" type="submit">Poll</button>
+          <button className="btn que-btn" type="submit" disabled={btnDisabled}>Poll</button>
         </div>
       </form>
     </Fragment>
