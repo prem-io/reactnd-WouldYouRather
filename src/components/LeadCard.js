@@ -6,7 +6,7 @@ import ImageCard from './ImageCard'
 const LeadCard = ({ user: { name, avatarURL, answerCount, questionCount, total }, medal }) => {
   return (
     <Card
-      style={{ marginTop: 16 }}
+      style={{ marginTop: 16, textAlign: 'center' }}
       type="inner"
       className="lead-card"
     >

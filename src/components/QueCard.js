@@ -22,6 +22,7 @@ const CardContent = props => {
 const QueCard = (props) => {
   return (
     <Card
+      className="que-card"
       style={{ marginTop: 16 }}
       type="inner"
       title={props.user.name + ' asks:'}
