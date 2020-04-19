@@ -21,7 +21,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { selectedUser } = this.state
-    new Promise((res, rej) => {
+    new Promise((res, _rej) => {
       this.setState({ loading: true })
       setTimeout(() => res(), 500)
     }).then(() => {

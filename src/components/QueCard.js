@@ -26,15 +26,8 @@ const QueCard = (props) => {
       style={{ marginTop: 16 }}
       type="inner"
       title={props.user.name + ' asks:'}
-      extra={(props.cardType === 'CARD_RESULT') ?
-        <Link
-          className="btn que-btn"
-          to={{
-            pathname: `/questions`,
-            // state: { results: false }
-          }}>
-          Back
-      </Link> : null}
+      extra={(props.cardType === 'CARD_RESULT')
+        ? <Link className="btn que-btn" to='/questions'>Back</Link> : null}
     >
       <div className="row m-0">
         <div className="col-4 line">

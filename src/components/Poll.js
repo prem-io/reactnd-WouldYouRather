@@ -14,12 +14,6 @@ export class Poll extends Component {
     })
   };
 
-  // pushRoute = () => {
-  //   const qid = this.props.match.params.id
-  //   // this.props.history.push(`/questions/${qid}`, { results: true })
-  //   this.props.history.push(`/questions/${qid}`)
-  // }
-
   handleSubmit = (e) => {
     e.preventDefault()
     const qid = this.props.match.params.id
@@ -33,7 +27,6 @@ export class Poll extends Component {
         res('success')
       }, 1000)
     }).then(() => {
-      // this.pushRoute()
       this.setState({ isLoading: false })
     })
   }
@@ -41,8 +34,6 @@ export class Poll extends Component {
   render() {
     const { id, badUrl, cardResult } = this.props
     const { value, isLoading } = this.state
-    // const results = this.props.location.state ? this.props.location.state.results : false
-    // console.log(cardResult)
 
     if (badUrl) {
       return <Redirect to='/404' />
@@ -57,7 +48,6 @@ export class Poll extends Component {
             isLoading={isLoading}
             handlePoll={this.onChange}
             handleSubmit={this.handleSubmit}
-            // cardType={(results || cardResult) ? 'CARD_RESULT' : 'CARD_QUESTION'}
             cardType={(cardResult) ? 'CARD_RESULT' : 'CARD_QUESTION'}
           />
         </div>
