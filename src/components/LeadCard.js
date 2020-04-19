@@ -17,12 +17,12 @@ const LeadCard = ({ user: { name, avatarURL, answerCount, questionCount, total }
         <div className="col-6 line">
           <h5 className="text-left mb-3">{name}</h5>
           <div className="row">
-            <div className="col-9 py-2">Answered Questions</div>
-            <div className="col-3 py-2">{answerCount}</div>
+            <div className="col-9 text-left py-2">Answered Questions</div>
+            <div className="col-3 text-right py-2">{answerCount}</div>
           </div>
           <div className="row">
-            <div className="col-9 py-2">Created Questions</div>
-            <div className="col-3 py-2">{questionCount}</div>
+            <div className="col-9 text-left py-2">Created Questions</div>
+            <div className="col-3 text-right py-2">{questionCount}</div>
           </div>
         </div>
         <div className="col-3">

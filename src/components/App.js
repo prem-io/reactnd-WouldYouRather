@@ -33,7 +33,7 @@ export class App extends Component {
                 <Route exact path='/questions' component={Questions} />
                 <Route path='/questions/:id' component={Poll} />
                 <Route path='/leaderboard' component={LeaderBoard} />
-                <Route path="/new_poll" component={NewQuestionForm} />
+                <Route path="/add" component={NewQuestionForm} />
                 <Route path="/404" component={NotFound} />
                 <Redirect from="*" to="/404" />
               </Switch>

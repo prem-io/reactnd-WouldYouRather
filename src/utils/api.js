@@ -19,6 +19,5 @@ export function saveQuestionAnswer(authedUser, qid, answer) {
 }
 
 export function saveQuestion(question) {
-  console.log('saveQuestion', question)
   return _saveQuestion(question)
 }

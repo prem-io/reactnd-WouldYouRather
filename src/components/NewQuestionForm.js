@@ -33,6 +33,7 @@ export class NewQuestionForm extends Component {
         optionTwoText: '',
         isLoading: false
       })
+      this.props.history.push('/questions')
     })
   }
 
