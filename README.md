@@ -2,9 +2,80 @@
 
 'Would You Rather' is a quiz based game which allows user to login, post questions and also poll on questions posted by other users. The project emphasizes using React & Redux to build the application. Redux store is used to persist information as we interact with the application.
 
-# How to run or load the App
+## Installation Procedure
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+```bash
+
+git clone https://github.com/prem-io/reactnd-WouldYouRather.git
+cd reactnd-WouldYouRather
+
+```
+- install all project dependencies with `npm install` or `yarn install`
+- start the development server with `npm start` or `yarn start`
+
+A new browser window should automatically open displaying the app. If it doesn't, navigate to http://localhost:3000/ in your browser
+
+## Features of the project
+
+- Login & Logout
+- Navigation Bar
+- Home Screen (Question Page w/ Answered and Unanswered category)
+- Poll View
+    └── Poll Screen is available at `/questions/:id` user can poll to respective question
+- Result View
+    └── Result Screen is available at `/questions/:id` user can view results of people votes to that question
+- New Question Form
+    └── This form provides user ability to create new poll. It is available at `/add`
+- Leaderboard
+    └── Leaderboard is available at `/leaderboard`. List of users arranged in the descending order of their score. The individual score is calculated as sum of total questions answered and total questions asked by user.
+  
+## What You're Getting
+
+```bash
+
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── public
+├── ├── assets
+│   └── index.html
+└── src
+    ├── actions
+    │   ├── authUser.js
+    │   ├── questions.js
+    │   ├── shared.js
+    │   └── users.js
+    ├── components
+    │   ├── App.js
+    │   ├── AppHeader.js
+    │   ├── ImageCard.js
+    │   ├── LeadCard.js
+    │   ├── Login.js
+    │   ├── NewQuestionForm.js
+    │   ├── NotFound.js
+    │   ├── Poll.js
+    │   ├── QueCard.js
+    │   ├── QuePreview.js
+    │   ├── QueQuetion.js
+    │   ├── QueResult.js
+    │   ├── Questions.js
+    │   └── app.css # Component Style Sheet
+    ├── middleware
+    │   └── index.js # Redux middlewares
+    ├── reducers
+    │   ├── authUser.js
+    │   ├── index.js # Root Reducer
+    │   ├── questions.js
+    │   └── users.js
+    ├── utils
+    │   ├── _DATA.js
+    │   └── api.js
+    ├── index.css # Global styles. You probably won't need to change anything here.
+    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```
+
+Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+
+## Backend Server
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
 
@@ -99,6 +170,13 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
-## Contributing
+# Resources and Documentation
 
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+* [Create-react-app Documentation](https://github.com/facebook/create-react-app)
+* [Redux Documentation](https://redux.js.org/)
+* [React Router Documentation](http://knowbody.github.io/react-router-docs/)
+* [Official Ant Design React Integration](https://ant.design/docs/react/introduce)
+* [Project starter template](https://github.com/udacity/reactnd-project-would-you-rather-starter)
+* [Project Rubric](https://review.udacity.com/#!/rubrics/1567/view)
+* [Royalty Free Icons](https://www.flaticon.com/)
+
