@@ -20,14 +20,10 @@ A new browser window should automatically open displaying the app. If it doesn't
 - Login & Logout
 - Navigation Bar
 - Home Screen (Question Page w/ Answered and Unanswered category)
-- Poll View
-    └── Poll Screen is available at `/questions/:id` user can poll to respective question
-- Result View
-    └── Result Screen is available at `/questions/:id` user can view results of people votes to that question
-- New Question Form
-    └── This form provides user ability to create new poll. It is available at `/add`
-- Leaderboard
-    └── Leaderboard is available at `/leaderboard`. List of users arranged in the descending order of their score. The individual score is calculated as sum of total questions answered and total questions asked by user.
+- Poll View - Poll Screen is available at `/questions/:id` user can poll to respective question
+- Result View - Result Screen is available at `/questions/:id` user can view results of people votes to that question
+- New Question Form - This form provides user ability to create new poll. It is available at `/add`
+- Leaderboard - Leaderboard is available at `/leaderboard`. List of users arranged in the descending order of their score. The individual score is calculated as sum of total questions answered and total questions asked by user.
   
 ## What You're Getting
 
