@@ -7,7 +7,7 @@ const radioStyle = {
   lineHeight: '30px',
 }
 
-const QueQuestion = ({ question, value, isLoading, handlePoll, handleSubmit }) => {
+const QueQuestion = ({ question, value, handlePoll, handleSubmit }) => {
   const btnDisabled = value === '' ? true : false
   return (
     <Fragment>
@@ -22,7 +22,7 @@ const QueQuestion = ({ question, value, isLoading, handlePoll, handleSubmit }) =
           </Radio>
         </Radio.Group>
         <div className="mt-2">
-          <Button className="btn que-btn" loading={isLoading} htmlType="submit" disabled={btnDisabled}>Poll</Button>
+          <Button className="btn que-btn" htmlType="submit" disabled={btnDisabled}>Poll</Button>
         </div>
       </form>
     </Fragment>

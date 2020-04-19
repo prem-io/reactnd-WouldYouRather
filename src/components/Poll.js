@@ -6,7 +6,7 @@ import { message } from 'antd'
 import { Redirect } from 'react-router-dom'
 
 export class Poll extends Component {
-  state = { value: '', isLoading: false };
+  state = { value: '' };
 
   onChange = e => {
     this.setState({
@@ -19,21 +19,13 @@ export class Poll extends Component {
     const qid = this.props.match.params.id
     const authUser = this.props.authUser
     const answer = this.state.value
-    new Promise((res, _rej) => {
-      this.setState({ isLoading: true })
-      this.props.dispatch(saveAnswer(authUser, qid, answer))
-      setTimeout(() => {
-        message.success('Your Answer is Polled.')
-        res('success')
-      }, 1000)
-    }).then(() => {
-      this.setState({ isLoading: false })
-    })
+    this.props.dispatch(saveAnswer(authUser, qid, answer))
+    message.success('Your Answer is Polled.')
   }
 
   render() {
     const { id, badUrl, cardResult } = this.props
-    const { value, isLoading } = this.state
+    const { value } = this.state
 
     if (badUrl) {
       return <Redirect to='/404' />
@@ -45,7 +37,6 @@ export class Poll extends Component {
           <QueCard
             qid={id}
             value={value}
-            isLoading={isLoading}
             handlePoll={this.onChange}
             handleSubmit={this.handleSubmit}
             cardType={(cardResult) ? 'CARD_RESULT' : 'CARD_QUESTION'}
