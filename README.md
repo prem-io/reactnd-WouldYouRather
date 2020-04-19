@@ -1,6 +1,13 @@
-## Would You Rather Project - A Game developed using React & Redux
+### Would You Rather
 
-'Would You Rather' is a quiz based game which allows user to login, post questions and also poll on questions posted by other users. The project emphasizes using React & Redux to build the application. Redux store is used to persist information as we interact with the application.
+# A Game developed using React & Redux
+
+'Would You Rather' is a quiz based game which allows user to login, post questions and also poll to a question posted by other users. The project emphasizes using React & Redux to build the application. Redux store is used to persist information as we interact with the application and also helps in easy access to the store data in any component.
+
+## Prerequisites
+
+To install this project onto your machine and run it. You require Node.js installed in your system.
+To install node.js, navigate to [Node.js](https://nodejs.org/en/download/) and install. The Node.js installer includes the NPM package manager.
 
 ## Installation Procedure
 
