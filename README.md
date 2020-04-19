@@ -1,4 +1,4 @@
-# Would You Rather Project - A Game developed using React & Redux
+## Would You Rather Project - A Game developed using React & Redux
 
 'Would You Rather' is a quiz based game which allows user to login, post questions and also poll on questions posted by other users. The project emphasizes using React & Redux to build the application. Redux store is used to persist information as we interact with the application.
 
@@ -170,7 +170,7 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
-# Resources and Documentation
+## Resources and Documentation
 
 * [Create-react-app Documentation](https://github.com/facebook/create-react-app)
 * [Redux Documentation](https://redux.js.org/)
