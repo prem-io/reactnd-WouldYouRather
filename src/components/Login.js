@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Select, Button } from 'antd'
 import ImageCard from './ImageCard'
 import { setAuthUser } from '../actions/authUser'
-import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -27,7 +26,6 @@ class Login extends Component {
       setTimeout(() => res(), 500)
     }).then(() => {
       this.props.dispatch(setAuthUser(selectedUser))
-      this.props.history.push('/questions')
     })
   }
 

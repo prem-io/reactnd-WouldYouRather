@@ -1,14 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
 import { setAuthUser } from '../actions/authUser'
 import ImageCard from './ImageCard'
 
-const AppHeader = ({ authUser, users, setAuthUser }) => {
+const AppHeader = ({ authUser, users, setAuthUser, history }) => {
   const handleLogout = (e) => {
     e.preventDefault()
     setAuthUser(null)
+    history.push('/')
     localStorage.clear()
   }
 
@@ -37,4 +38,4 @@ function mapStateToProps({ users, authUser }) {
   }
 }
 
-export default connect(mapStateToProps, { setAuthUser })(AppHeader)
+export default withRouter(connect(mapStateToProps, { setAuthUser })(AppHeader))

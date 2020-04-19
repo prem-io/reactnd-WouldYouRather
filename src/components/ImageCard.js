@@ -13,7 +13,7 @@ const ImageCard = ({ url, name, small }) => {
   return (
     <img
       src={url}
-      alt={`This is ${name} image`}
+      alt={`This is ${name} avatar`}
       className='img-card'
       style={small ? smallImg : largeImg}
     />

@@ -1,13 +1,12 @@
 .container {
-  height: 100vh;
   padding: 30px 0px;
 }
 
 .login-container {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px;
 }
 
 .card {
@@ -129,8 +128,6 @@
   margin-right: 5px;
 }
 
-/*  */
-
 /* Questions Section */
 
 .questions-container {
@@ -176,8 +173,6 @@
   border-bottom: 1px solid #f0f0f0;
   border-radius: 0 0 5px 5px;
 }
-
-/* Questions Section */
 
 /* Que Card */
 
@@ -232,8 +227,6 @@
 .ant-radio-input:focus + .ant-radio-inner {
   border-color: #22292f;
 }
-
-/* Que Card */
 
 /* Lead Card */
 
@@ -290,8 +283,6 @@
   background-image: url('/assets/003-medal.svg');
 }
 
-/* Lead Card */
-
 /* New Poll Card */
 
 .h-line {
@@ -315,15 +306,9 @@
   margin: 0 1rem;
 }
 
-/* New Poll Card */
-
-/* New Card -- Start*/
-
 .new-card .ant-card-head-title {
   font-size: 18px;
 }
-
-/* New Card -- End */
 
 /* Vote Card */
 
@@ -357,4 +342,20 @@
   height: 35px;
 }
 
-/* Vote Card */
+/* 404 Error */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-icon {
+  background-image: url('/assets/error.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+}

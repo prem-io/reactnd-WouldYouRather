@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import './app.css'
 
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
@@ -25,22 +25,20 @@ export class App extends Component {
       <Router>
         <div className="container">
           {authUser === null
-            ? <>
-              <Route render={() => <Redirect to='/login' />} />
-              <Route path='/login' component={Login} />
-            </>
-            : <>
+            ? <Route render={() => <Login />} />
+            : <Fragment>
               <AppHeader />
               <Switch>
                 <Route exact path="/" render={() => <Redirect to="/questions" />} />
                 <Route exact path='/questions' component={Questions} />
+                <Route path="/questions/bad_id" component={NotFound} />
                 <Route path='/questions/:id' component={Poll} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path="/new_poll" component={NewQuestionForm} />
                 <Route path="/404" component={NotFound} />
                 <Redirect from="*" to="/404" />
               </Switch>
-            </>
+            </Fragment>
           }
         </div>
       </Router>
