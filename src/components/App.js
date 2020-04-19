@@ -31,7 +31,6 @@ export class App extends Component {
               <Switch>
                 <Route exact path="/" render={() => <Redirect to="/questions" />} />
                 <Route exact path='/questions' component={Questions} />
-                <Route path="/questions/bad_id" component={NotFound} />
                 <Route path='/questions/:id' component={Poll} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path="/new_poll" component={NewQuestionForm} />

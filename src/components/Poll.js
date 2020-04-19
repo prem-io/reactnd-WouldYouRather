@@ -14,10 +14,11 @@ export class Poll extends Component {
     })
   };
 
-  pushRoute = () => {
-    const qid = this.props.match.params.id
-    this.props.history.push(`/questions/${qid}`, { results: true })
-  }
+  // pushRoute = () => {
+  //   const qid = this.props.match.params.id
+  //   // this.props.history.push(`/questions/${qid}`, { results: true })
+  //   this.props.history.push(`/questions/${qid}`)
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -32,17 +33,19 @@ export class Poll extends Component {
         res('success')
       }, 1000)
     }).then(() => {
-      this.pushRoute()
+      // this.pushRoute()
+      this.setState({ isLoading: false })
     })
   }
 
   render() {
-    const { id, badUrl } = this.props
+    const { id, badUrl, cardResult } = this.props
     const { value, isLoading } = this.state
-    const results = this.props.location.state ? this.props.location.state.results : false
+    // const results = this.props.location.state ? this.props.location.state.results : false
+    // console.log(cardResult)
 
     if (badUrl) {
-      return <Redirect to='/questions/bad_id' />
+      return <Redirect to='/404' />
     }
 
     return (
@@ -54,7 +57,8 @@ export class Poll extends Component {
             isLoading={isLoading}
             handlePoll={this.onChange}
             handleSubmit={this.handleSubmit}
-            cardType={results ? 'CARD_RESULT' : 'CARD_QUESTION'}
+            // cardType={(results || cardResult) ? 'CARD_RESULT' : 'CARD_QUESTION'}
+            cardType={(cardResult) ? 'CARD_RESULT' : 'CARD_QUESTION'}
           />
         </div>
       </div>
@@ -62,13 +66,20 @@ export class Poll extends Component {
   }
 }
 
-function mapStateToProps({ authUser, questions }, { match }) {
+function mapStateToProps({ authUser, questions, users }, { match }) {
   let badUrl = false
+  let cardResult = false
   const { id } = match.params
+
+  if (id in users[authUser].answers) {
+    cardResult = true
+  }
+
   if (questions[id] === undefined) {
     badUrl = true
   }
 
-  return { id, authUser, badUrl }
+  return { id, authUser, badUrl, cardResult }
 }
+
 export default connect(mapStateToProps)(Poll)

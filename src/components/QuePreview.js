@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const QuePreview = ({ unanswered, question, qid }) => {
   const buttonContent = unanswered ? 'Answer Poll' : 'Results'
-  const results = !unanswered
+  // const results = !unanswered
   const questionDescription = question.optionOne.text.substring(0, 15)
 
   return (
@@ -15,7 +15,7 @@ const QuePreview = ({ unanswered, question, qid }) => {
           className="btn que-btn"
           to={{
             pathname: `/questions/${qid}`,
-            state: { results: results }
+            // state: { results: results }
           }}>
           {buttonContent}
         </Link>

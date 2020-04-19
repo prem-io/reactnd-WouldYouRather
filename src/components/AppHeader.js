@@ -10,7 +10,6 @@ const AppHeader = ({ authUser, users, setAuthUser, history }) => {
     e.preventDefault()
     setAuthUser(null)
     history.push('/')
-    localStorage.clear()
   }
 
   return (

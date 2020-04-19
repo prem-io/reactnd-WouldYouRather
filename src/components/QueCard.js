@@ -31,7 +31,7 @@ const QueCard = (props) => {
           className="btn que-btn"
           to={{
             pathname: `/questions`,
-            state: { results: false }
+            // state: { results: false }
           }}>
           Back
       </Link> : null}
